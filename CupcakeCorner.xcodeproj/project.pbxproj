@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA2D2B6F26286C4B00146C56 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2D2B6E26286C4B00146C56 /* AddressView.swift */; };
+		CA2D2B7226286E2300146C56 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2D2B7126286E2300146C56 /* CheckoutView.swift */; };
 		CA8EAFA926272996005EEE60 /* CupcakeCornerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EAFA826272996005EEE60 /* CupcakeCornerApp.swift */; };
 		CA8EAFAB26272996005EEE60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EAFAA26272996005EEE60 /* ContentView.swift */; };
 		CA8EAFAD26272997005EEE60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA8EAFAC26272997005EEE60 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		CA2D2B6E26286C4B00146C56 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		CA2D2B7126286E2300146C56 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		CA8EAFA526272996005EEE60 /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8EAFA826272996005EEE60 /* CupcakeCornerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeCornerApp.swift; sourceTree = "<group>"; };
 		CA8EAFAA26272996005EEE60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				CA8EAFA826272996005EEE60 /* CupcakeCornerApp.swift */,
 				CA8EAFAA26272996005EEE60 /* ContentView.swift */,
+				CA2D2B7126286E2300146C56 /* CheckoutView.swift */,
 				CAE8098C2628683700D5D8BD /* Order.swift */,
 				CA8EAFAC26272997005EEE60 /* Assets.xcassets */,
 				CA2D2B6E26286C4B00146C56 /* AddressView.swift */,
@@ -146,6 +149,7 @@
 			files = (
 				CAE8098D2628683700D5D8BD /* Order.swift in Sources */,
 				CA2D2B6F26286C4B00146C56 /* AddressView.swift in Sources */,
+				CA2D2B7226286E2300146C56 /* CheckoutView.swift in Sources */,
 				CA8EAFAB26272996005EEE60 /* ContentView.swift in Sources */,
 				CA8EAFA926272996005EEE60 /* CupcakeCornerApp.swift in Sources */,
 			);
