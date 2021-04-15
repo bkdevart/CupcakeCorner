@@ -9,28 +9,10 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var username = ""
-    @State var email = ""
-    
-    var disableForm: Bool {
-        username.count < 5 || email.count < 5
-    }
+    @ObservedObject var order = Order()
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Username", text: $username)
-                TextField("Email", text: $email)
-            }
-            
-            Section {
-                Button("Create account") {
-                    print("Creating account...")
-                }
-            }
-            .disabled(disableForm)
-//            .disabled(username.isEmpty || email.isEmpty)
-        }
+        Text("Hello world")
     }
 }
     
