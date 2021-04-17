@@ -39,11 +39,6 @@ struct CheckoutView: View {
                   message: Text(confirmationMessage),
                   dismissButton: .default(Text("OK")))
         })
-//        .alert(isPresented: $showingErrorAlert, content: {
-//            Alert(title: Text("Error"),
-//                  message: Text(confirmationMessage),
-//                  dismissButton: .default(Text("OK")))
-//        })
     }
     
     func placeOrder() {
@@ -62,11 +57,10 @@ struct CheckoutView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
                 print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
-                //        If our call to placeOrder() fails – for example if there is no internet connection – show an informative alert for the user. To test this, just disable WiFi on your Mac so the simulator has no connection either.
                 self.confirmationMessage = "Error retreiving data"
+                self.alertTitle = "Error"
                 self.showingConfirmation = true
                 self.showingErrorAlert = true
-                self.alertTitle = "Error"
                 return
             }
             
