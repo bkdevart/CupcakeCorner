@@ -7,6 +7,8 @@
 
 import Foundation
 
+//For a more challenging task, see if you can convert our data model from a class to a struct, then create an ObservableObject class wrapper around it that gets passed around. This will result in your class having one @Published property, which is the data struct inside it, and should make supporting Codable on the struct much easier.
+
 class Order: ObservableObject, Codable {
     enum CodingKeys: CodingKey {
         case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip
@@ -34,6 +36,7 @@ class Order: ObservableObject, Codable {
     @Published var zip = ""
     
     var hasValidAddress: Bool {
+//        Our address fields are currently considered valid if they contain anything, even if it’s just only whitespace. Improve the validation to make sure a string of pure whitespace is invalid.
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
             return false
         }

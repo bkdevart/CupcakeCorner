@@ -44,7 +44,7 @@ struct CheckoutView: View {
             print("Failed to encode order")
             return
         }
-        
+//        If our call to placeOrder() fails – for example if there is no internet connection – show an informative alert for the user. To test this, just disable WiFi on your Mac so the simulator has no connection either.
         // force unwrap used since we know URL is correct w/o interpolation
         let url = URL(string: "https://reqres.in/api/cupcakes")!
         var request = URLRequest(url: url)
