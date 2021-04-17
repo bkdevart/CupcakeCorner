@@ -35,9 +35,30 @@ class Order: ObservableObject, Codable {
     @Published var city = ""
     @Published var zip = ""
     
+    func hasAllSpaces(myString: String) -> Bool {
+        var checkChars = ""
+        for char in myString {
+            if char == " " {
+                checkChars.append(char)
+            }
+        }
+        if checkChars.count == myString.count {
+            print("All spaces")
+            return true
+        } else {
+            print("Has non-space characters")
+            return false
+        }
+    }
+    
     var hasValidAddress: Bool {
-//        Our address fields are currently considered valid if they contain anything, even if it’s just only whitespace. Improve the validation to make sure a string of pure whitespace is invalid.
+
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+            return false
+        }
+        
+        //        Our address fields are currently considered valid if they contain anything, even if it’s just only whitespace. Improve the validation to make sure a string of pure whitespace is invalid.
+        if hasAllSpaces(myString: name) || hasAllSpaces(myString: streetAddress) || hasAllSpaces(myString: city) || hasAllSpaces(myString: zip) {
             return false
         }
         
