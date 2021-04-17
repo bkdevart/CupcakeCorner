@@ -56,8 +56,7 @@ class Order: ObservableObject, Codable {
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
             return false
         }
-        
-        //        Our address fields are currently considered valid if they contain anything, even if it’s just only whitespace. Improve the validation to make sure a string of pure whitespace is invalid.
+
         if hasAllSpaces(myString: name) || hasAllSpaces(myString: streetAddress) || hasAllSpaces(myString: city) || hasAllSpaces(myString: zip) {
             return false
         }

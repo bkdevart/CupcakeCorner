@@ -10,7 +10,9 @@ import SwiftUI
 struct CheckoutView: View {
     @ObservedObject var order: Order
     @State private var confirmationMessage = ""
+    @State private var alertTitle = ""
     @State private var showingConfirmation = false
+    @State private var showingErrorAlert = false
     
     var body: some View {
         GeometryReader { geo in
@@ -33,10 +35,15 @@ struct CheckoutView: View {
         }
         .navigationBarTitle("Check out", displayMode: .inline)
         .alert(isPresented: $showingConfirmation, content: {
-            Alert(title: Text("Thank you!"),
+            Alert(title: Text(alertTitle),
                   message: Text(confirmationMessage),
                   dismissButton: .default(Text("OK")))
         })
+//        .alert(isPresented: $showingErrorAlert, content: {
+//            Alert(title: Text("Error"),
+//                  message: Text(confirmationMessage),
+//                  dismissButton: .default(Text("OK")))
+//        })
     }
     
     func placeOrder() {
@@ -44,7 +51,7 @@ struct CheckoutView: View {
             print("Failed to encode order")
             return
         }
-//        If our call to placeOrder() fails – for example if there is no internet connection – show an informative alert for the user. To test this, just disable WiFi on your Mac so the simulator has no connection either.
+
         // force unwrap used since we know URL is correct w/o interpolation
         let url = URL(string: "https://reqres.in/api/cupcakes")!
         var request = URLRequest(url: url)
@@ -55,12 +62,18 @@ struct CheckoutView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
                 print("No data in response: \(error?.localizedDescription ?? "Unknown error").")
+                //        If our call to placeOrder() fails – for example if there is no internet connection – show an informative alert for the user. To test this, just disable WiFi on your Mac so the simulator has no connection either.
+                self.confirmationMessage = "Error retreiving data"
+                self.showingConfirmation = true
+                self.showingErrorAlert = true
+                self.alertTitle = "Error"
                 return
             }
             
             if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
                 self.confirmationMessage = "Your order for \(decodedOrder.quantity)x\(Order.types[decodedOrder.type].lowercased())cupcakes is on its way!"
                 self.showingConfirmation = true
+                self.alertTitle = "Thank you!"
             } else {
                 print("Invalid response from server")
             }
