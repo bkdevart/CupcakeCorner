@@ -7,35 +7,6 @@
 
 import Foundation
 
-//For a more challenging task, see if you can convert our data model from a class to a struct, then create an ObservableObject class wrapper around it that gets passed around. This will result in your class having one @Published property, which is the data struct inside it, and should make supporting Codable on the struct much easier.
-/*
- struct Response: Codable {
-     var results: [Result]
- }
-
- struct Result: Codable {
-     var trackId: Int
-     var trackName: String
-     var collectionName: String
- }
-
- struct ContentView: View {
-     @State var results = [Result]()
-     
-     var body: some View {
-         List(results, id: \.trackId) { item in
-             VStack(alignment: .leading) {
-                 Text(item.trackName)
-                     .font(.headline)
-                 
-                 Text(item.collectionName)
-             }
-         }
-     }
- }
- */
-
-
 class Order: ObservableObject, Codable {
     enum CodingKeys: CodingKey {
         case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip

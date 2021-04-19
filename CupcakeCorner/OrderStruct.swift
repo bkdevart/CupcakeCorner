@@ -36,12 +36,35 @@ import Foundation
  }
  */
 
-
-struct OrderStruct: Identifiable, Codable {
-//    enum CodingKeys: CodingKey {
-//        case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip
+class OrderStruct: ObservableObject {
+    @Published var order = OrderS()
+    
+//    init() {
+//
 //    }
-    let id = UUID()
+    
+//    required init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        type = try container.decode(Int.self, forKey: .type)
+//        quantity = try container.decode(Int.self, forKey: .quantity)
+//
+//        extraFrosting = try container.decode(Bool.self, forKey: .extraFrosting)
+//        addSprinkles = try container.decode(Bool.self, forKey: .addSprinkles)
+//
+//        name = try container.decode(String.self, forKey: .name)
+//        streetAddress = try container.decode(String.self, forKey: .streetAddress)
+//        city = try container.decode(String.self, forKey: .city)
+//        zip = try container.decode(String.self, forKey: .zip)
+//    }
+    
+}
+
+struct OrderS: Codable {
+    enum CodingKeys: CodingKey {
+        case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, zip
+    }
+//        let id = UUID()
     
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
     
@@ -122,21 +145,4 @@ struct OrderStruct: Identifiable, Codable {
         try container.encode(city, forKey: .city)
         try container.encode(zip, forKey: .zip)
     }
-    
-    init() { }
-    
-//    required init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        type = try container.decode(Int.self, forKey: .type)
-//        quantity = try container.decode(Int.self, forKey: .quantity)
-//
-//        extraFrosting = try container.decode(Bool.self, forKey: .extraFrosting)
-//        addSprinkles = try container.decode(Bool.self, forKey: .addSprinkles)
-//
-//        name = try container.decode(String.self, forKey: .name)
-//        streetAddress = try container.decode(String.self, forKey: .streetAddress)
-//        city = try container.decode(String.self, forKey: .city)
-//        zip = try container.decode(String.self, forKey: .zip)
-//    }
 }
