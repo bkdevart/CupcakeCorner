@@ -9,15 +9,15 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @ObservedObject var order = OrderStruct()
+    @ObservedObject var order = Order()
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     Picker("Select your cake type", selection: $order.order.type) {
-                        ForEach(0..<Order.types.count) {
-                            Text(Order.types[$0])
+                        ForEach(0..<OrderStruct.types.count) {
+                            Text(OrderStruct.types[$0])
                         }
                     }
                     
